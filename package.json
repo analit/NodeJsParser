@@ -1,0 +1,14 @@
+{
+    "name": "NodeJsParser",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "serg",
+    "contributors": [],
+    "dependencies": {
+        "iconv": "~2.2.1",
+        "request": "~2.74.0",
+        "xmlbuilder": "~8.2.2",
+        "fs": "~0.0.2",
+        "cheerio": "~0.20.0"
+    }
+}
