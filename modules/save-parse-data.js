@@ -1,6 +1,6 @@
 var cheerio = require('cheerio');
 var xmlBuilder = require('xmlbuilder');
-var fs = require('fs');
+
 
 function isCheck(phones, address) {
     if (phones.text().match(/\+7\(978\)/)) {
@@ -29,11 +29,8 @@ function appendDataToFirms(name, phones, address) {
     });
 }
 
-function getFileName(url) {
-    return url.match(/([0-9]+-){2,3}[0-9]+/)[0];
-}
 
-module.exports.saveToXml = function (url, body) {
+module.exports.getXmlData = function (body) {
     var $ = cheerio.load(body);
     var listFirms = $("table[width='97%'] tr");
     var firms = xmlBuilder.create("firms");
@@ -44,7 +41,7 @@ module.exports.saveToXml = function (url, body) {
     });
 
     // console.log(firms.toString());
-    fs.writeFile('kinds-data/' + getFileName(url), firms);
+    
 };
 
 
