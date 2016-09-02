@@ -1,7 +1,12 @@
 var cheerio = require('cheerio');
 var xmlBuilder = require('xmlbuilder');
 
-
+/**
+ *
+ * @param phones
+ * @param address
+ * @returns {boolean}
+ */
 function isCheck(phones, address) {
     if (phones.text().match(/\+7\(978\)/)) {
         return true;
