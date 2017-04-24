@@ -1,14 +1,23 @@
 {
-    "name": "NodeJsParser",
-    "version": "1.0.0",
-    "keywords": ["util", "functional", "server", "client", "browser"],
-    "author": "serg",
-    "contributors": [],
-    "dependencies": {
-        "iconv": "~2.2.1",
-        "request": "~2.74.0",
-        "xmlbuilder": "~8.2.2",
-        "fs": "~0.0.2",
-        "cheerio": "~0.20.0"
-    }
+  "name": "node-js-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/analit/NodeJsParser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/analit/NodeJsParser/issues"
+  },
+  "homepage": "https://github.com/analit/NodeJsParser#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "xmldoc": "^1.0.0"
+  }
 }
