@@ -1,0 +1,35 @@
+<select name="category[]" multiple=""
+        style="width: 400px; height: 250px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; background: #fff;"
+        class="valid">
+
+    <optgroup label="АЛКОГОЛЬНЫЕ НАПИТКИ, ПИВО" class="catXR">
+        <option value="2#32#0">&nbsp;+--&nbsp;Алкогольные напитки</option>
+        <option value="2#33#0">&nbsp;+--&nbsp;Пиво</option>
+    </optgroup>
+    <optgroup label="АЭРОПОРТЫ, АВТОВОКЗАЛЫ, ЖЕЛЕЗНОДОРОЖНЫЕ ВОКЗАЛЫ, ТРОЛЛЕЙБУСНЫЕ СТАНЦИИ " class="catXR">
+        <option value="80#1209#0">&nbsp;+--&nbsp;Автовокзалы</option>
+        <option value="80#1555#0">&nbsp;+--&nbsp;Аэродромы</option>
+        <option value="80#1208#0">&nbsp;+--&nbsp;Аэропорты</option>
+        <option value="80#1210#0">&nbsp;+--&nbsp;Железнодорожные вокзалы</option>
+        <option value="80#1506#0">&nbsp;+--&nbsp;Морской порт</option>
+        <option value="80#1211#0">&nbsp;+--&nbsp;Троллейбусные станции</option>
+    </optgroup>
+    <optgroup label="БУХГАЛТЕРСКИЕ И АУДИТОРСКИЕ УСЛУГИ" class="catXR"></optgroup>
+    <optgroup label="+--Аудиторские услуги" class="subXR">
+        <option value="73#1095#1131">&nbsp;&nbsp;&nbsp;&nbsp;+--&nbsp;Аудит финансовой деятельности предприятий и
+            организаций
+        </option>
+        <option value="73#1095#1132">&nbsp;&nbsp;&nbsp;&nbsp;+--&nbsp;Международный аудит</option>
+    </optgroup>
+    <optgroup label="+--Бухгалтерские услуги" class="subXR">
+        <option value="73#1096#1135">&nbsp;&nbsp;&nbsp;&nbsp;+--&nbsp;Автоматизация бухгалтерского учета. Системы
+            доставки электронной отчетности
+        </option>
+        <option value="73#1096#1134">&nbsp;&nbsp;&nbsp;&nbsp;+--&nbsp;Аутсорсинг бухгалтерских услуг</option>
+        <option value="73#1096#1133">&nbsp;&nbsp;&nbsp;&nbsp;+--&nbsp;Бухгалтерское сопровождение деятельности
+            предприятия, ведение бухгалтерского учета
+        </option>
+        <option value="73#1096#1136">&nbsp;&nbsp;&nbsp;&nbsp;+--&nbsp;Консультации по бухгалтерскому учету</option>
+    </optgroup>
+    <option value="73#1439#0">&nbsp;+--&nbsp;Экономика-правовая экспертиза</option>
+</select>
