@@ -1,0 +1,24 @@
+<firm name="G-Алгоритм, компания">
+    <contacts>
+        <contact type="http" contact="http://g-a.crimea.ua"/>
+        <contact type="http" contact="http://g-a.crimea.ua"/>
+    </contacts>
+    <addresses>
+        <address town="Симферополь" point="Магазин" street="Самокиша" houseNumber="" officeNumber="" >
+            <phones>
+                <phone countryCode="7" phoneType="м" comment="" number="7982214" TownCode=""/>
+            </phones>
+        </address>
+    </addresses>
+    <kinds>
+        <kind category-id="4030">
+            <products>
+                <product name="новый продукт" description="описание нового продукта"></product>
+                <product name="новый продукт2" description="описание нового продукта 2"></product>
+            </products>
+        </kind>
+    </kinds>
+    <products>
+        <product name="новый продукт без вида деятельности" description="описание нового продукта"></product>
+    </products>
+</firm>
