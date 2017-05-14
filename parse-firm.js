@@ -19,10 +19,11 @@ let q = tress((url, callback) => {
         let $ = cheerio.load(res.body);
 
         let tableFirmData = $("table[width=550]");
-        firm.name(tableFirmData.find("h1").text());
+        firm.setName(tableFirmData.find("h1").text());
 
-        let addressContainer = $("td[width=256]");
-
+        let addressContainer = $("td[width=265]");
+        firm.addAddress(getAddress(addressContainer));
+        console.log(firm);
 
     })
 }, 10)
@@ -35,8 +36,8 @@ q.push(url);
 
 function getAddress(addressContainer) {
 
-    let town = addressContainer.filter("strong").eq(0).text().trim();
-    let address = addressContainer.filter("strong").eq(0).text().trim();
+    let town = addressContainer.contents().filter("strong").eq(0).text().trim();
+    let address = addressContainer.contents().filter("strong").eq(0).text().trim();
 
     return {
         town: town,
@@ -44,5 +45,14 @@ function getAddress(addressContainer) {
         point: "",
         street: 'street',
         houseNumber: 'houseNumber'
+    }
+}
+
+function getPhones() {
+    return {
+        countryCode: "",
+        phoneType: "",
+        number: "",
+        TownCode: ""
     }
 }

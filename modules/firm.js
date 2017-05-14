@@ -6,11 +6,11 @@ class Firm {
         this.contacts = []
     }
 
-    get name() {
+    getName() {
         return this.name;
     }
 
-    set name(name) {
+    setName(name) {
         this.name = name;
     }
 
