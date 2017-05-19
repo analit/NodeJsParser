@@ -14,7 +14,9 @@ function saveToFile() {
 
 }
 
-
+function parseKinds(err, res){
+    console.log(firm);
+}
 
 let q = tress((url, callback) => {
 
@@ -47,9 +49,11 @@ let q = tress((url, callback) => {
             firm.addContact({ type: 'http', contact: site.text().trim() });
         }
 
-        let kinds = $("div[align=left] a[href*='alloffers.php?category']");
+        // let kinds = $("div[align=left] a[href*='alloffers.php?category']");
+        let kinds = $("div[align=left] a[href*='_test_category']");
         kinds.each((i, kind) => {
             console.log($(kind).attr("href"));
+            needle.get($(kind).attr("href"), parseKinds);
         });
         callback();
     })
