@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/analit/NodeJsParser#readme",
   "dependencies": {
+    "chai": "^3.5.0",
     "cheerio": "^0.22.0",
     "fs": "0.0.1-security",
     "needle": "^1.6.0",
