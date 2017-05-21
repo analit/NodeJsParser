@@ -1,20 +1,22 @@
-let needle = require('needle');
+let needle = require("needle");
 let tress = require('tress');
 let cheerio = require('cheerio');
 let builder = require('xmlbuilder');
-let functions = require("./modules/functions")
+let functions = require("./modules/functions");
 let Firm = require("./modules/firm");
 
 let url = "http://localhost/NodeJsParser/8982_test.html";
 // let url = "http://1582.com.ua/view.php?id=7522";
 // let url = "http://1582.com.ua/view.php?id=8982";
+// let url = "http://1582.com.ua/filial.php?id=8982";
+// let url = "http://1582.com.ua/view.php?id=235";
 // let xmlFirm = builder.create("firm");
 
 function saveToFile() {
 
 }
 
-function parseKinds(err, res){
+function parseKinds(err, res) {
     console.log(firm);
 }
 
@@ -30,10 +32,10 @@ let q = tress((url, callback) => {
 
         // address
         let addressContainer = $("td[width=265]");
-        var address = getAddress(addressContainer);
+        let address = getAddress(addressContainer);
         firm.addAddress(address);
 
-        let phonesObjects = $("td[width=265]").next().find("strong").contents().filter(function () { return this.nodeType === 3 });
+        let phonesObjects = $("td[width=265]").next().find("strong").contents().filter(function () { return this.nodeType === 3; });
         let phones = getPhones(phonesObjects);
         address.phones = phones;
 
@@ -49,15 +51,28 @@ let q = tress((url, callback) => {
             firm.addContact({ type: 'http', contact: site.text().trim() });
         }
 
+        // kinds
         // let kinds = $("div[align=left] a[href*='alloffers.php?category']");
-        let kinds = $("div[align=left] a[href*='_test_category']");
-        kinds.each((i, kind) => {
-            console.log($(kind).attr("href"));
-            needle.get($(kind).attr("href"), parseKinds);
+        let categories = $("div[align=left] a[href*='_test_category']");
+        let args = [];
+        categories.each((i, category) => {
+
+            let request = needle.get($(category).attr("href"), (err, res) => {
+                return getKinds(cheerio.load(res.body));
+                // let kinds = getKinds(cheerio.load(res.body));
+                // kinds.forEach((kind) => {
+                //     firm.addKind(kind);
+                // });
+            });
+            args.push(request);
         });
-        callback();
-    })
-}, 10)
+        let pr = new Promise(function(resolve, reject) { });
+        // $.when().then(function () {
+        //     console.log(arguments);
+        //     callback();
+        // });
+    });
+}, 10);
 
 q.push(url);
 // q.push(url);
@@ -66,13 +81,28 @@ q.drain = function () {
     console.log('Finished');
 };
 
+function getKinds($) {
+    let result = [];
+    $("a[href*=subcategory]").each((i, category) => {
+        let match = $(category).attr("href").match(/category=\d+/);
+        let idOmel = match[0].replace("category=", "");
+        let kind = {
+            "id-omel": idOmel,
+            text: $(category).find("span").text(),
+            class: $(category).find("span").attr("class"),
+        };
+        console.log(kind);
+    });
+    return [];
+}
+
 function getAffiliateAddress(affiliateContaner, town) {
 
-    var address = affiliateContaner.find("h2").contents().filter(function () { return this.nodeType === 3 }).eq(1)[0].data;
+    var address = affiliateContaner.find("h2").contents().filter(function () { return this.nodeType === 3; }).eq(1)[0].data;
     address = functions.parseAddress(address);
     address.town = town;
     address.phones = [];
-    var phones = affiliateContaner.contents().filter(function () { return this.nodeType === 3 })
+    var phones = affiliateContaner.contents().filter(function () { return this.nodeType === 3 });
     phones.each((i, phone) => {
         phone = phone.data.trim().replace(/\)/, ") ");
         if (/\+\d+\(\d+\)/.test(phone)) {

@@ -1,3 +1,4 @@
+/*jslint es6 */
 class Firm {
     constructor() {
         this.name = null;
