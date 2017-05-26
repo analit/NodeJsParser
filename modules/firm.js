@@ -1,14 +1,27 @@
 /*jslint es6 */
 class Firm {
-    constructor() {
+    constructor(id) {
+        this.id = id;
         this.name = null;
         this.addresses = [];
         this.kinds = [];
-        this.contacts = []
+        this.contacts = [];
+    }
+
+    getId() {
+        return this.id;
     }
 
     getName() {
         return this.name;
+    }
+
+    getKinds() {
+        return this.kinds;
+    }
+
+    getContacts() {
+        return this.contacts;
     }
 
     setName(name) {

@@ -60,11 +60,22 @@ let parsePhone = (phoneRaw) => {
     }
 
     return result;
-
-
 }
+/**
+ * @param {string} url 
+ */
+function getFirmId(url) {
+    if (/localhost\/NodeJsParser/.test(url)){
+        return '00';
+    }
+    let found = url.match(/\d+$/);
+    return found[0];
+}
+
+
 
 module.exports = {
     parseAddress: parseAddress,
-    parsePhone: parsePhone
+    parsePhone: parsePhone,
+    getFirmId: getFirmId
 }

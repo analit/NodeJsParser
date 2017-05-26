@@ -1,6 +1,7 @@
 let functions = require("./../modules/functions.js");
 let chai = require("chai");
 let expect = chai.expect;
+let assert = chai.assert;
 
 describe('test functions', function () {
     it('parse address', function () {
@@ -15,8 +16,33 @@ describe('test functions', function () {
         data.forEach((data) => {
             expect(functions.parsePhone(data.data)).to.eql(data.expect);
         });
-    })
+    });
+
+    it('get firm id', () => {
+        let data = getFirmIdDataProvider();
+        data.forEach((data) => {
+            // expect(functions.getFirmId(data.data)).to.eql(data.expect);
+            assert.equal(functions.getFirmId(data.data), data.expect);
+        });
+    });
+
+    it('get id category', () => {
+
+    });
 });
+
+function getFirmIdDataProvider() {
+    return [
+        {
+            data: "http://1582.com.ua/view.php?id=7522",
+            expect: 7522
+        },
+        {
+            data: "http://1582.com.ua/view.php?id=8982",
+            expect: 8982
+        },
+    ]
+}
 
 function getParsePnoneDataProvider() {
     return [
