@@ -45,7 +45,7 @@ let saveToFile = (firm) => {
     });
 };
 
-function getIdCategory($file, callback) {
+function getMapCategory($file, callback) {
     let map;
     fs.readFile($file, 'utf8', (err, data) => {
         if (err) {
@@ -58,5 +58,5 @@ function getIdCategory($file, callback) {
 
 module.exports = {
     saveToFile: saveToFile,
-    getIdCategory: getIdCategory
+    getMapCategory: getMapCategory
 };

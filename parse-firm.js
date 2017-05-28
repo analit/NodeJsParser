@@ -11,9 +11,8 @@ let url = "http://localhost/NodeJsParser/8982_test.html";
 // let url = "http://1582.com.ua/view.php?id=8982";
 // let url = "http://1582.com.ua/filial.php?id=8982";
 // let url = "http://1582.com.ua/view.php?id=235";
-// let xmlFirm = builder.create("firm");
 
-if (process.argv.slice(2)[0]){
+if (process.argv.slice(2)[0]) {
     url = process.argv.slice(2)[0];
 }
 
@@ -87,12 +86,22 @@ let q = tress((url, callback) => {
             }));
         });
 
-        Promise.all(args).then(values => {
-            values.forEach(callback => {
-                callback();
+        Promise.all(args)
+            .then(values => {
+                values.forEach(callback => {
+                    callback();
+                });
+                // storage.saveToFile(firm);
+                return firm;
+            })
+            .then(firm => {
+                storage.getMapCategory("./resources/map-rubrics-omel.json", (map) => {
+                    firm.getKinds().forEach(category => {
+                        category.id = map[category["id-omel"]] || "";
+                    });
+                    storage.saveToFile(firm);
+                });
             });
-            storage.saveToFile(firm);
-        });
     });
 
     callback();
