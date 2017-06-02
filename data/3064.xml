@@ -1,24 +1,27 @@
 <firm id-omel="3064" name="Космопроф, центр обеспечения салонов и клиник">
-	<addresses>
-		<address point="" street="Генерала Попова" st="ул." houseNumber="70/2" officeNumber="оф.№ 30" town="СИМФЕРОПОЛЬ">
-			<phones>
-				<phone countryCode="7" phoneType="м" number="1036888" TownCode="978" comment="" />
-				<phone countryCode="7" phoneType="м" number="7090415" TownCode="978" comment="" />
-				<phone countryCode="7" phoneType="м" number="7443929" TownCode="978" comment="" />
-			</phones>
-		</address>
-	</addresses>
-	<kinds>
-		<kind id-omel="874" text="Косметика" class="maincat" id="" />
-		<kind id-omel="409" text="Косметика по уходу за волосами" class="subcat" id="902" />
-		<kind id-omel="410" text="Косметика по уходу за кожей" class="subcat" id="901,3007" />
-		<kind id-omel="411" text="Лечебная косметика" class="subcat" id="" />
-		<kind id-omel="408" text="Профессиональная косметика" class="subcat" id="" />
-		<kind id-omel="1183" text="Массажное оборудование, массажеры и аксессуары" class="maincat" id="" />
-		<kind id-omel="1338" text="Столы, кушетки массажные" class="subcat" id="" />
-		<kind id-omel="410" text="Оборудование для косметических салонов и парикмахерских" class="maincat" id="901,3007" />
-	</kinds>
-	<contacts>
-		<contact type="http" contact="http://космопроф.рф" />
-	</contacts>
+    <addresses>
+        <address point="" street="Генерала Попова" st="ул." houseNumber="70/2" officeNumber="оф.№ 30"
+                 town="СИМФЕРОПОЛЬ">
+            <phones>
+                <phone countryCode="7" phoneType="м" number="1036888" TownCode="978" comment=""/>
+                <phone countryCode="7" phoneType="м" number="7090415" TownCode="978" comment=""/>
+                <phone countryCode="7" phoneType="м" number="7443929" TownCode="978" comment=""/>
+            </phones>
+        </address>
+    </addresses>
+    <kinds>
+        <kind id-omel="874" text="Косметика" class="maincat" category-id=""/>
+        <kind id-omel="409" text="Косметика по уходу за волосами" class="subcat" category-id="902"/>
+        <kind id-omel="410" text="Косметика по уходу за кожей" class="subcat" category-id="901,3007"/>
+        <kind id-omel="411" text="Лечебная косметика" class="subcat" category-id=""/>
+        <kind id-omel="408" text="Профессиональная косметика" class="subcat" category-id=""/>
+        <kind id-omel="1183" text="Массажное оборудование, массажеры и аксессуары" class="maincat" category-id=""/>
+        <kind id-omel="1338" text="Столы, кушетки массажные" class="subcat" category-id=""/>
+        <kind id-omel="410" text="Оборудование для косметических салонов и парикмахерских" class="maincat"
+              category-id="901,3007"/>
+    </kinds>
+    <contacts>
+        <contact type="http" contact="http://космопроф.рф"/>
+        <contact type="email" contact=""/>
+    </contacts>
 </firm>

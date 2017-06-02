@@ -1,20 +1,20 @@
-let storage = require("./../modules/storage");
-let chai = require("chai");
+let storage = require( "./../modules/storage" );
+let chai = require( "chai" );
 let expect = chai.expect;
 let assert = chai.assert;
 
-describe('test storage', () => {
-    it('get category id from map', () => {
+describe( 'test storage', () => {
+    it( 'get category id from map', () => {
         let data = getCategoryIdProvider();
-        data.forEach((data) => {
-            storage.getMapCategory("./resources/map-rubrics-omel.json", (map) => {
-                assert.equal(map[data.data], data.expect);
-            });
-        });
-    });
-});
+        data.forEach( ( data ) => {
+            storage.getMapCategory( "./resources/map-rubrics-omel.json", ( map ) => {
+                assert.equal( map[data.data], data.expect );
+            } );
+        } );
+    } );
+} );
 
-function getCategoryIdProvider() {
+function getCategoryIdProvider () {
     return [
         {
             data: 1217,

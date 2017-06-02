@@ -20,9 +20,15 @@
     "chai": "^3.5.0",
     "cheerio": "^0.22.0",
     "fs": "0.0.1-security",
+    "md5": "^2.2.1",
+    "mysql": "^2.13.0",
     "needle": "^1.6.0",
+    "optimist": "^0.6.1",
+    "request": "^2.81.0",
     "tress": "^1.0.3",
     "xmlbuilder": "^9.0.0",
-    "xmldoc": "^1.0.0"
+    "xmldoc": "^1.0.0",
+    "xmldom": "^0.1.27",
+    "xpath": "0.0.24"
   }
 }

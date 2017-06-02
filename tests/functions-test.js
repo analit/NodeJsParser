@@ -1,37 +1,37 @@
-let functions = require("./../modules/functions.js");
-let chai = require("chai");
+let functions = require( "./../modules/functions.js" );
+let chai = require( "chai" );
 let expect = chai.expect;
 let assert = chai.assert;
 
-describe('test functions', function () {
-    it('parse address', function () {
+describe( 'test functions', function () {
+    it( 'parse address', function () {
         let data = getParseAddressDataProvider();
-        data.forEach(function (data) {
-            expect(functions.parseAddress(data.data)).to.eql(data.expect);
-        });
-    })
+        data.forEach( function ( data ) {
+            expect( functions.parseAddress( data.data ) ).to.eql( data.expect );
+        } );
+    } )
 
-    it('parse phone', () => {
+    it( 'parse phone', () => {
         let data = getParsePnoneDataProvider();
-        data.forEach((data) => {
-            expect(functions.parsePhone(data.data)).to.eql(data.expect);
-        });
-    });
+        data.forEach( ( data ) => {
+            expect( functions.parsePhone( data.data ) ).to.eql( data.expect );
+        } );
+    } );
 
-    it('get firm id', () => {
+    it( 'get firm id', () => {
         let data = getFirmIdDataProvider();
-        data.forEach((data) => {
+        data.forEach( ( data ) => {
             // expect(functions.getFirmId(data.data)).to.eql(data.expect);
-            assert.equal(functions.getFirmId(data.data), data.expect);
-        });
-    });
+            assert.equal( functions.getFirmId( data.data ), data.expect );
+        } );
+    } );
 
-    it('get id category', () => {
+    it( 'get id category', () => {
 
-    });
-});
+    } );
+} );
 
-function getFirmIdDataProvider() {
+function getFirmIdDataProvider () {
     return [
         {
             data: "http://1582.com.ua/view.php?id=7522",
@@ -44,7 +44,7 @@ function getFirmIdDataProvider() {
     ]
 }
 
-function getParsePnoneDataProvider() {
+function getParsePnoneDataProvider () {
     return [
         {
             data: "+7(978) 7278553 - Директор - в абнентском зале",
@@ -79,7 +79,7 @@ function getParsePnoneDataProvider() {
     ]
 }
 
-function getParseAddressDataProvider() {
+function getParseAddressDataProvider () {
     return [
         {
             data: "ул. Балаклавская, 68, оф. 107",
