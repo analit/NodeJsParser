@@ -1,6 +1,7 @@
 let needle = require( "needle" );
 let tress = require( 'tress' );
 let cheerio = require( 'cheerio' );
+let xpath = require( "xpath" );
 
 let functions = require( "./modules/functions" );
 let Firm = require( "./modules/firm" );
@@ -95,9 +96,12 @@ let q = tress( ( url, callback ) => {
                 return firm;
             } )
             .then( firm => {
-                storage.getMapCategory( "./resources/map-rubrics-omel.json", ( map ) => {
+                storage.getMapCategory( "./resources/map-rubrics-omel.json", "./resources/rubricator-inspravka.xml", ( map, rubricator ) => {
                     firm.getKinds().forEach( category => {
                         category['category-id'] = map[category["id-omel"]] || "";
+                        if (category['category-id'].length){
+                            category["category-extra"] = rubricsToString(rubricator.getRubricsFromIds(category['category-id'].split(",")));
+                        }
                     } );
                     storage.saveToFile( firm );
                 } );
@@ -113,12 +117,20 @@ q.drain = function () {
     console.log( 'Finished!' );
 };
 
+function rubricsToString( rubrics ) {
+    let result = [];
+    rubrics.forEach( rubrica => {
+        result.push(`${rubrica.id}: ${rubrica.title}`);
+    } );
+    return result.join(". ");
+}
+
 /**
  *
  * @param {jQuery} $ - page to affiliate
  * @param {string} notTown - skip town name
  */
-function getAffiliateOnTowns ( $, notTown ) {
+function getAffiliateOnTowns( $, notTown ) {
 
     let result = [];
     $( "table[cellspacing=1]" ).each( ( i, table ) => {
@@ -141,7 +153,7 @@ function getAffiliateOnTowns ( $, notTown ) {
 /**
  * @param {string} phones
  */
-function getPhonesAffiliateOnTowns ( phones ) {
+function getPhonesAffiliateOnTowns( phones ) {
     let result = [];
     var phones = phones.split( "," );
     phones.forEach( phone => {
@@ -153,7 +165,7 @@ function getPhonesAffiliateOnTowns ( phones ) {
 /**
  * @param {jQuery} $ page to kinds
  */
-function getKinds ( $ ) {
+function getKinds( $ ) {
     let result = [];
     $( "a[href*=subcategory]" ).each( ( i, category ) => {
         let match = $( category ).attr( "href" ).match( /category=\d+/ );
@@ -169,7 +181,7 @@ function getKinds ( $ ) {
     return result;
 }
 
-function getAffiliateAddress ( affiliateContaner, town ) {
+function getAffiliateAddress( affiliateContaner, town ) {
 
     var address = affiliateContaner.find( "h2" ).contents().filter( function () {
         return this.nodeType === 3;
@@ -192,7 +204,7 @@ function getAffiliateAddress ( affiliateContaner, town ) {
     return address;
 }
 
-function getAddress ( addressContainer ) {
+function getAddress( addressContainer ) {
 
     let town = addressContainer.contents().filter( "strong" ).eq( 0 ).text().trim();
     let address = addressContainer.contents().filter( "strong" ).eq( 1 ).text().trim();
@@ -202,7 +214,7 @@ function getAddress ( addressContainer ) {
     return result;
 }
 
-function getPhones ( phonesObjects ) {
+function getPhones( phonesObjects ) {
     let result = [];
     phonesObjects.each( ( index, phone ) => {
         result.push( functions.parsePhone( phone.data ) );

@@ -1,6 +1,8 @@
+// let Dom = require( "xmldom" ).DOMParser;
+
 let fs = require( "fs" );
 let builder = require( 'xmlbuilder' );
-
+let Rubricator  = require("./rubricator");
 /**
  *
  * @param {Firm} firm
@@ -45,12 +47,33 @@ let saveToFile = ( firm ) => {
     } );
 };
 
-function getMapCategory ( $file, callback ) {
-    fs.readFile( $file, 'utf8', ( err, data ) => {
-        if (err) {
-            console.log( err );
-        }
-        callback( JSON.parse( data ) );
+function getMapCategory( fileMapRubricsOmel, fileRubricatorInspravka, callback ) {
+
+    let dataMapRubricsOmel, dataRubricatorInspravka;
+    let args = [
+        new Promise( resolve => {
+            fs.readFile( fileMapRubricsOmel, 'utf8', ( err, data ) => {
+                if (err) {
+                    console.log( err );
+                }
+                dataMapRubricsOmel = JSON.parse( data );
+                resolve();
+            } );
+        } ),
+        new Promise( resolve => {
+            fs.readFile( fileRubricatorInspravka, 'utf8', ( err, data ) => {
+                if (err) {
+                    console.log( err );
+                }
+                // dataRubricatorInspravka = new Dom().parseFromString( data );
+                dataRubricatorInspravka = new Rubricator(data);
+                resolve();
+            } );
+        } )
+    ];
+
+    Promise.all( args ).then( () => {
+        callback( dataMapRubricsOmel, dataRubricatorInspravka );
     } );
 }
 
