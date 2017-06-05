@@ -1,0 +1,25 @@
+<firm id-omel="28844" name="Комплексные услуги безопасности, ООО">
+    <addresses>
+        <address point="" street="Кечкеметская" st="ул." houseNumber="103" officeNumber="" town="СИМФЕРОПОЛЬ">
+            <phones>
+                <phone countryCode="7" phoneType="м" number="0777375" TownCode="978" comment=""/>
+                <phone countryCode="7" phoneType="м" number="0560777" TownCode="978" comment=""/>
+                <phone countryCode="7" phoneType="м" number="1385687" TownCode="978" comment=""/>
+            </phones>
+        </address>
+    </addresses>
+    <kinds>
+        <kind id-omel="359" text="Охранное оборудование и аксессуары" class="maincat" category-id="2602"/>
+        <kind id-omel="1261" text="Проектирование и монтаж охранной сигнализации" class="maincat" category-id="2602"/>
+        <kind id-omel="1260" text="Проектирование и монтаж пожарной сигнализации" class="maincat" category-id="2603"/>
+        <kind id-omel="1259" text="Проектирование и монтаж систем видеонаблюдения" class="maincat" category-id="2602"/>
+        <kind id-omel="360" text="Противопожарное оборудование и аксессуары" class="maincat" category-id="2603"/>
+        <kind id-omel="1186" text="Системы видеонаблюдения" class="maincat" category-id="2602"/>
+        <kind id-omel="1186" text="Системы видеонаблюдения" class="maincat" category-id="2607"/>
+
+    </kinds>
+    <contacts>
+        <contact type="http" contact="http://симферополь.безопасность-крым.рф"/>
+        <contact type="email" contact="kub-krym@yandex.ru"/>
+    </contacts>
+</firm>
