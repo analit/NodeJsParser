@@ -99,8 +99,8 @@ let q = tress( ( url, callback ) => {
                 storage.getMapCategory( "./resources/map-rubrics-omel.json", "./resources/rubricator-inspravka.xml", ( map, rubricator ) => {
                     firm.getKinds().forEach( category => {
                         category['category-id'] = map[category["id-omel"]] || "";
-                        if (category['category-id'].length){
-                            category["category-extra"] = rubricsToString(rubricator.getRubricsFromIds(category['category-id'].split(",")));
+                        if (category['category-id'].length) {
+                            category["category-extra"] = rubricsToString( rubricator.getRubricsFromIds( category['category-id'].split( "," ) ) );
                         }
                     } );
                     storage.saveToFile( firm );
@@ -120,9 +120,9 @@ q.drain = function () {
 function rubricsToString( rubrics ) {
     let result = [];
     rubrics.forEach( rubrica => {
-        result.push(`${rubrica.id}: ${rubrica.title}`);
+        result.push( `${rubrica.id}: ${rubrica.title}` );
     } );
-    return result.join(". ");
+    return result.join( ". " );
 }
 
 /**
@@ -139,15 +139,29 @@ function getAffiliateOnTowns( $, notTown ) {
         var addressContainer = affiliateContainer.find( "tr" ).eq( 1 ).find( "td" ).eq( 1 ).contents().filter( function () {
             return this.nodeType === 3;
         } );
-        let town = addressContainer[4].data.replace( /:/, "" ).trim();
-        if (notTown != town) {
+        let town = getAffiliateTown( addressContainer );
+        if (town && notTown != town) {
             let address = functions.parseAddress( addressContainer[6].data.replace( /:/, "" ).trim() );
+            address.point = point;
             address.town = town;
             address.phones = getPhonesAffiliateOnTowns( addressContainer[8].data.replace( /:/, "" ).trim() );
             result.push( address );
         }
     } );
 
+    return result;
+}
+/**
+ *
+ * @param addressContainer - text node container
+ */
+function getAffiliateTown( addressContainer ) {
+    let result = null;
+    addressContainer.each( ( i, textNode ) => {
+        if (/^:\s+[А-Я]+$/.test( textNode.data )) {
+            result = textNode.data.replace( /:/, "" ).trim();
+        }
+    } );
     return result;
 }
 /**
