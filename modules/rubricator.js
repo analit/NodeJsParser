@@ -36,5 +36,4 @@ Rubricator.prototype.getRubricsFromNodes = function ( nodes ) {
 }
 
 
-// exports.Rubricator = Rubricator;
 module.exports = Rubricator;
