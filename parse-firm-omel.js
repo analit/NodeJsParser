@@ -27,8 +27,15 @@ let q = tress( ( url, callback ) => {
     needle.get( url, ( err, res ) => {
         let $ = cheerio.load( res.body );
 
+        // firm
         let tableFirmData = $( "table[width=550]" );
         firm.setName( tableFirmData.find( "h1" ).text().trim() );
+
+        // logo
+        let logo = $("table[width=550] td[width=400] img");
+        if (logo.length){
+            firm.logo = logo.attr("src").trim();
+        }
 
         // address
         let addressContainer = $( "td[width=265]" );

@@ -11,6 +11,9 @@ let saveToFile = ( firm ) => {
 
     let xmlFirm = builder.create( 'root' ).ele( 'firm', {'id-omel': firm.getId(), name: firm.getName()} );
 
+    // logo
+    xmlFirm.ele('images').ele("image", { src: firm.logo });
+
     // addresses
     let xmlAddresses = xmlFirm.ele( 'addresses' );
     firm.getAddresses().forEach( function ( address ) {

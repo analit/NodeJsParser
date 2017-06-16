@@ -6,6 +6,7 @@ class Firm {
         this.addresses = [];
         this.kinds = [];
         this.contacts = [];
+        this.logo = ''
     }
 
     getId() {
