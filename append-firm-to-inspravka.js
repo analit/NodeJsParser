@@ -31,10 +31,10 @@ fs.readFile( `./data/${argv.data}.xml`, ( err, data ) => {
         process.exit( 0 );
     }
     request( {url: url, method: "PUT", body: data}, ( err, response, body ) => {
-        try {
-            console.log( JSON.parse( body ) );
-        } catch (error) {
-            console.log(body);
+        if (err) {
+            console.log(err);
+            process.exit(0);
         }
+        console.log( JSON.parse( body ) );
     } );
 } );
