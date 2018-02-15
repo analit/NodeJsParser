@@ -1,3 +1,8 @@
+/** 
+ * Exapmle:
+ * node http://some-site.com/view.php?id=9?
+ * Result: in data/9.xml
+*/
 let needle = require( "needle" );
 let tress = require( 'tress' );
 let cheerio = require( 'cheerio' );
