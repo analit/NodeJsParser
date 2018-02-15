@@ -6,7 +6,8 @@ class Firm {
         this.addresses = [];
         this.kinds = [];
         this.contacts = [];
-        this.logo = ''
+        this.logo = '';
+        this.createdBy = `parser-omel:${id}`;
     }
 
     getId() {
@@ -43,6 +44,10 @@ class Firm {
 
     addKind(object) {
         this.kinds.push(object);
+    }
+
+    getCreatedBy() {
+        return this.createdBy
     }
 }
 

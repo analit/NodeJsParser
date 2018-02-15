@@ -1,0 +1,38 @@
+Result { id: 2 }
+Result { id: 3 }
+Result { id: 1 }
+Result { id: 8 }
+Result { id: 16 }
+Result { id: 22 }
+Result { id: 5 }
+Result { id: 21 }
+Result { id: 4 }
+Result { id: 7 }
+Result { id: 17 }
+Result { id: 25 }
+Result { id: 6 }
+Result { id: 18 }
+Result { id: 20 }
+Result { name: 'Колосов Г. В., ИП / КИТ-2005, КФ, ООО', id: 9 }
+Result { name: 'Кочанов Н. Н., ФЛП', id: 28 }
+Result { name: 'VitaDent, стоматология', id: 10 }
+Result { name: 'Арт-агентство Игоря Власова', http: true, id: 13 }
+Result { name: 'Компания - Эксперт Энерго Юг, ООО', http: true, id: 27 }
+Result { name: 'Амтек, гостиница', http: true, id: 11 }
+Result { id: 29 }
+Result {
+  name: 'Винстон ВУЛЬФ, компания / Бланк - Экспресс, ТМ',
+  http: true,
+  id: 15 }
+Result { name: 'Арма, оружейный магазин', http: true, id: 12 }
+Result { name: 'Знаток, центр иностранных языков', id: 24 }
+Result { name: 'Авис, предприятие, ООО', id: 26 }
+Result {
+  name: 'Служба эксплуатации сооружений Крым / Колотов А.В., ИП',
+  id: 14 }
+Result { name: 'Выгодно, рекламное агентство', http: true, id: 19 }
+Result {
+  name: 'Еврофлора, международная служба доставки цветов и подарков, VIP флористика и фитодизайн',
+  http: true,
+  id: 23 }
+Result { name: 'Маркосян А. Э., ФЛП', http: true, id: 30 }

@@ -6,4 +6,3 @@ node_modules/
 test_files/
 .vscode/
 /npm-debug.log
-data/
