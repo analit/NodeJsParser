@@ -1,0 +1,37 @@
+<firm id-omel="5568" name="Евромедцентр, ООО" createdBy="parser-omel:5568">
+    <images>
+        <image src="http://1582.com.ua/logo/5568.jpg"/>
+    </images>
+    <addresses>
+        <address point="" street="Киевская" st="ул." houseNumber="153 В" officeNumber="" town="СИМФЕРОПОЛЬ">
+            <phones>
+                <phone countryCode="7" phoneType="т" number="530295" TownCode="3652" comment=""/>
+                <phone countryCode="7" phoneType="м" number="7333991" TownCode="978" comment=""/>
+                <phone countryCode="7" phoneType="т" number="530294" TownCode="3652" comment=""/>
+                <phone countryCode="7" phoneType="т" number="530296" TownCode="3652" comment=""/>
+                <phone countryCode="7" phoneType="т" number="530298" TownCode="3652" comment=""/>
+                <phone countryCode="7" phoneType="т" number="530297" TownCode="3652" comment=""/>
+                <phone countryCode="7" phoneType="м" number="7333992" TownCode="978" comment="поликлиника"/>
+            </phones>
+        </address>
+        <address point="" street="Киевская" st="ул." houseNumber="д. 38" officeNumber="" town="СИМФЕРОПОЛЬ">
+            <phones>
+                <phone countryCode="7" phoneType="м" number="7333994" TownCode="978" comment=""/>
+                <phone countryCode="7" phoneType="т" number="248940" TownCode="3652" comment=""/>
+            </phones>
+        </address>
+    </addresses>
+    <kinds>
+        <kind id-omel="1307" text="Диагностические медицинские услуги" class="maincat" category-id="1011"/>
+        <kind id-omel="1812" text="Рентгенодиагностика. Рентгенография" class="subcat" category-id="1011"/>
+        <kind id-omel="1815" text="Электрокардиография. Электрокардиограмма. ЭКГ" class="subcat" category-id="1011"/>
+        <kind id-omel="1308" text="Лабораторные медицинские исследования, услуги " class="maincat" category-id="1011"/>
+        <kind id-omel="1816" text="Лабораторная диагностика" class="subcat" category-id="1011"/>
+        <kind id-omel="114" text="Медицинские центры" class="maincat" category-id="1026"/>
+        <kind id-omel="96" text="Оптика" class="maincat" category-id="1005"/>
+    </kinds>
+    <contacts>
+        <contact type="http" contact="http://центрзрения.рф"/>
+        <contact type="email" contact=""/>
+    </contacts>
+</firm>

@@ -1,3 +1,6 @@
+/**
+ * node command-append-firm-to-inspravka.js --host=https://google.com --token=123456 --data=5
+ */
 let argv = require( 'optimist' ).argv;
 let request = require( 'request' );
 let fs = require( "fs" );

@@ -7,7 +7,6 @@ import * as fs from "fs";
 const config = require("../../config");
 import md5 = require("md5");
 import * as needle from "needle";
-import { NeedleOptions } from "needle";
 
 
 let id: number = parseInt(process.argv[3]);
@@ -25,8 +24,6 @@ fs.readFile(`data/${id}.xml`, 'utf8', (err, data) => {
             console.log(`Result - ${phone}:`, JSON.stringify(body));
         })
     });
-
-    let name = firm.getName();
 });
 
 class Firm {
@@ -34,9 +31,13 @@ class Firm {
     constructor(xml: Document) { this.xml = xml }
     public getPhones(): string[] {
         let result: string[] = [];
-        let phones = this.xml.getElementsByTagName("phone");
+        const phones: NodeListOf<Element> | null = this.xml.getElementsByTagName("phone");
+
+        if (phones === null) return result;
+
         for (let i = 0; i < phones.length; i++) {
-            let phone: string | null = phones.item(i).attributes.getNamedItem('number').nodeValue;
+            let phone: string | null;
+            phone = phones!.item(i)!.attributes!.getNamedItem('number')!.nodeValue;
             if (phone) {
                 result.push(phone);
             }
@@ -44,11 +45,13 @@ class Firm {
         return result;
     }
     public getName(): string | null {
-        let element: Node | null = this.xml.firstChild;
-        if (element) {
-            return element.attributes.getNamedItem('name').nodeValue;
+        const element: Element = <Element>this.xml.firstChild;
+        if (element === null) {
+            return null;
         }
-        return null;
+
+        return element!.attributes!.getNamedItem('name')!.nodeValue;
+
     }
 
     public getPhonesToString(): string {

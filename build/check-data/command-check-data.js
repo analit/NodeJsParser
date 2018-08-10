@@ -29,9 +29,12 @@ class Firm {
     constructor(xml) { this.xml = xml; }
     getPhones() {
         let result = [];
-        let phones = this.xml.getElementsByTagName("phone");
+        const phones = this.xml.getElementsByTagName("phone");
+        if (phones === null)
+            return result;
         for (let i = 0; i < phones.length; i++) {
-            let phone = phones.item(i).attributes.getNamedItem('number').nodeValue;
+            let phone;
+            phone = phones && phones.item(i) && phones.item(i).attributes && phones.item(i).attributes.getNamedItem('number') && phones.item(i).attributes.getNamedItem('number').nodeValue;
             if (phone) {
                 result.push(phone);
             }
@@ -39,11 +42,11 @@ class Firm {
         return result;
     }
     getName() {
-        let element = this.xml.firstChild;
-        if (element) {
-            return element.attributes.getNamedItem('name').nodeValue;
+        const element = this.xml.firstChild;
+        if (element === null) {
+            return null;
         }
-        return null;
+        return element.attributes.getNamedItem('name').nodeValue;
     }
     getPhonesToString() {
         return this.getPhones().join(",");
